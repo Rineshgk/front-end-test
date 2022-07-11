@@ -1,6 +1,5 @@
 import { h, JSX } from 'preact';
 import type { GroupDetails, GroupItemDetails } from '../../types/filter';
-import { FilterItemComponent } from './filter-item.component';
 import * as styles from './filter-group.module.less'
 import { lang } from '../../consts/lang';
 import { CheckboxComponent } from '../checkbox.component';
