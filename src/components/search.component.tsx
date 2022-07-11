@@ -8,7 +8,7 @@ import { route } from 'preact-router';
 import { NumberComponent } from './number.component'
 import { useRouter } from 'preact-router'
 
-export default function SearchComponent(): JSX.Element {
+export default function SearchComponent(props: {isLoading: boolean}): JSX.Element {
   const [ searchParams ] = useRouter();
   const onSubmit = (e: SubmitEvent) => {
     e.preventDefault();
@@ -34,10 +34,11 @@ export default function SearchComponent(): JSX.Element {
               <NumberComponent name="adults" label="Adults" id="adults_field" min={1} max={9} value={searchParams?.matches?.adults || 2} required={true} />
             </div>
             <div className={styles["col"]}>
-              <ButtonComponent text="Search" type="SUBMIT" />
+              <ButtonComponent text="Search" type="SUBMIT"  />
             </div>
           </div>        
         </form>
+        {props.isLoading? 'Loading...': ''}
       </div>
     </section>
   )

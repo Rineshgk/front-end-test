@@ -1,0 +1,75 @@
+@import (reference) "../../less/styled-components.include.less";
+
+.result{
+
+  .filter-button{
+    position: fixed;
+    bottom:0;
+    left: 0;
+    right:0;
+    width: 100%;
+    padding: 15px 0px;
+    color: @white;
+    border: 0;
+    cursor: pointer;
+    font-weight: @font-weight-bold;
+    background-color: @virgin-red;
+    display: block;
+    @media (min-width: @screen-sm-min) {
+      display: none;
+    }
+  }
+
+  .result-count{
+    background-color: @blue;
+    color: @white;
+    border-radius: 5px;
+    padding: 10px 5px;
+  }
+
+  .grid {
+    display: grid;
+    padding: 20px 0;
+    grid-template-columns: 1fr;
+    @media (min-width: @screen-sm-min) {
+      grid-template-columns: 200px 1fr;
+      padding: 20px 0;
+    }
+    grid-gap: 16px;
+  
+  
+    .filter-section{
+      position: absolute;
+      display: none;
+
+      padding-bottom: 60px;
+      @media (min-width: @screen-sm-min) {
+        position: relative;
+        display: block;
+      }
+    }
+
+    .result-section {
+      display: block;
+      padding-bottom: 60px;
+    }
+  }
+
+  &.show-filter {
+
+    .grid{
+      .filter-section{
+        display: block;
+      }
+
+      .result-section {
+        display: none;
+        @media (min-width: @screen-sm-min) {
+          display: block;
+        }
+      }
+    }
+
+  }
+
+}

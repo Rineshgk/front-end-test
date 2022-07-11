@@ -4,7 +4,7 @@ import SearchComponent from '../components/search.component'
 export default function HomeRoute(): JSX.Element {
     return (
         <section>
-            <SearchComponent />
+            <SearchComponent isLoading={false} />
             <h1>Holiday Search Test</h1>
 
             <p>We have provided a simple search panel for testing using `preact-router`.</p>

@@ -9,6 +9,7 @@ type ButtonProps = {
   disabled?: boolean
   type?: ButtonType
   skin?: "PRIMARY" | "SECONDARY"
+  onClick?: () => void;
 }
 
 export const ButtonComponent = (props: ButtonProps) => {
@@ -17,6 +18,7 @@ export const ButtonComponent = (props: ButtonProps) => {
       type={(props?.type || 'button').toLowerCase()}
       className={`${styles['button']} ${styles[`skin-${(props?.skin || 'PRIMARY').toLowerCase()}`]}`}
       disabled={props?.disabled || false}
+      onClick={props?.onClick}
     >   
       { props?.text }
     </button>

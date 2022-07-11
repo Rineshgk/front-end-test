@@ -36,3 +36,56 @@ Thanks for your time, we look forward to hearing from you!
 `npm run start` to start serving the application. We are using [ParcelJS](https://parceljs.org/) to bundle to refer to their documentation for more details.
 
 `npm run test` to run the unit tests. We have provided some passing tests already.
+
+
+## Filter Implementation
+
+#### Considerations
+- Web worker for filter heavy operations
+- Avoid unnecessary re-rendering for search results on filter change
+- Customized AND and OR operation using object indices
+- Unit testing and Accessibility
+- index based data management
+- Not used any third party boilerplate or hooks
+
+#### Files
+
+- lib/filter/*
+- components/filter/*
+- components/result/*
+- carousel.component
+- checkbox.component
+- rating.component
+
+#### Unit Test
+All spec files are in the same root
+
+Functionality of filter operations are tested in filter.spec.ts which covers 
+- Load data
+- Adding group
+- OR operation
+- AND operation
+- Filtered result
+- Reset
+
+Mapping of data to filter covered in filter-data-formatter.helper.spec.ts which covers rating, price per person and facility mapping
+
+### Web Worker
+
+Filter operations are running in worker. 
+Registration of worker done in results.route.ts
+
+### Bit based show/hide
+To avoid re-rendering of filtered search results, code use bit wise index operation to show and hide. This improves the rendering and UI interaction
+
+### Carousel
+Created an Simple Preact carousel
+
+
+### TODO
+- Cache can be done at group level. To create a key for the cache, selectedIndexByBit is maintained now at group and groupList.
+
+- Move worker js to separate file, if more operations. Now maintained at route level
+
+- Create a library for filter operations
+
